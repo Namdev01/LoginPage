@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
-import { Grid, Paper, Avatar, TextField, Button, Typography, FormControlLabel, Checkbox, makeStyles, AccordionSummary } from '@material-ui/core'
+import { Grid, Paper, Avatar, TextField, Button, Typography, makeStyles } from '@material-ui/core'
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import { Instagram, Facebook, GitHub, LinkedIn } from '@material-ui/icons';
 import B2H from './B2H'
@@ -18,18 +18,18 @@ const Login = () => {
     };
     const submitData = async (e) => {
         e.preventDefault();
-        const {username,password}=user;
-        const res=await fetch(`${process.env.REACT_APP_FIREBASE_DATABASE_URL}meradata.json`,
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": 'application/json',
-            },
-            body: JSON.stringify({
-                username,
-                password,
-            }),
-        }
+        const { username, password } = user;
+        const res = await fetch(`${process.env.REACT_APP_FIREBASE_DATABASE_URL}meradata.json`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": 'application/json',
+                },
+                body: JSON.stringify({
+                    username,
+                    password,
+                }),
+            }
         );
     };
     return (
@@ -73,10 +73,10 @@ const Login = () => {
                     </Link>
                 </Typography>
                 <Typography>
-                    <a className={links} href="https://github.com/Namdev01" target="_blank"><GitHub className={link} /> </a>
-                    <a className={links} href="https://www.linkedin.com/in/sunil-darji/" target="_blank"><LinkedIn className={link} /> </a>
-                    <a className={links} href="https://touch.facebook.com/sunil.namdev.37669" target="_blank"><Facebook className={link} /> </a>
-                    <a className={links} href="https://www.instagram.com/sunil._.namdev/" target="_blank"><Instagram className={link} /> </a>
+                    <a className={links} href="https://github.com/Namdev01"><GitHub className={link} /> </a>
+                    <a className={links} href="https://www.linkedin.com/in/sunil-darji/"><LinkedIn className={link} /> </a>
+                    <a className={links} href="https://touch.facebook.com/sunil.namdev.37669"><Facebook className={link} /> </a>
+                    <a className={links} href="https://www.instagram.com/sunil._.namdev/"><Instagram className={link} /> </a>
                 </Typography>
             </Paper>
         </Grid>
